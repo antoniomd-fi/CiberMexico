@@ -15,12 +15,12 @@ MonoBehaviour:
   vuforia:
     vuforiaLicenseKey: 
     ufoLicenseKey: QWVuTFIvWC8vLy8vQUFBQUtINFJQSGI5VzA1MGpoYllMallFeHBGOE01cHArTGFYQmRxdEZ1ZSs4cTNxRFI3LzZHZDJNMVc5NFp5a0RRVzJ0QWNIaXhUVlp0TDFaN2tua3M2RUZuQzdrcWJCT2E1RVlNQ04wRnlkOWpURnFrKzNLOXVsMnJySkorU2g1R1ZYSXJjRlQ0VkNhb3diWHVpNy9BZC9Rb0hBSDJhV1RESFhMSTROR2ZxT0ttWXFrd04vS1lXSmxmZm1hNEtDUGozQXpkOXZxMDl2RE52ZEdCdzV3REhFU010dDNIRDFwLytyWWtmdGFnNlUxYTI2YlBTaWFHTUdQbHhGeFQzQnpvWjBPTS9qejhYT1hEUjVJS1NNUE1yV0xMbDhHNGJxRjFuNnZnUGhBTFVBTEFjL0FTcVQ0L2s1T1MxR2NnZlFqM2ZIQVN0SG9LSG5SVHZTM0Q0b3E5cFlJQUl4VWJ3RnV6YjJkdDZtUTdxd3ZFMzE=
-    delayedInitialization: 0
+    delayedInitialization: 1
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
-    version: 1.0.0
+    version: 8.1.12
     eulaAcceptedVersions: '{"Values":["8.1"]}'
   digitalEyewear:
     cameraOffset: 0.06
