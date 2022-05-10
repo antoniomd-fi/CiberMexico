@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModelsController : MonoBehaviour
 {
     public GameObject modelo1;
-    //public GameObject modelo2;
+    public GameObject modelo2;
     public float radioDeAccion;
 
     // Start is called before the first frame update
@@ -19,13 +19,13 @@ public class ModelsController : MonoBehaviour
     {
         if (GPSController.distancia < radioDeAccion)
         {
-            modelo1.SetActive(true);
-            //modelo2.SetActive(false);
+            modelo2.SetActive(true);
+            modelo1.SetActive(false);
         }
         else
         {
-            modelo1.SetActive(false);
-            //modelo2.SetActive(true);
+            modelo2.SetActive(false);
+            modelo1.SetActive(true);
         }
     }
 }
