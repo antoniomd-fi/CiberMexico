@@ -284,8 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889a87a6bbff1884690d5fb8dd412260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntoLat: 0
-  puntoLong: 0
+  puntoLat: 19.424623
+  puntoLong: -98.8859
 --- !u!4 &207889648
 Transform:
   m_ObjectHideFlags: 0
