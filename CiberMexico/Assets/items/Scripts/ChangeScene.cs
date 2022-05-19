@@ -21,4 +21,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+    
+    public void chageIntroScene()
+    {
+        SceneManager.LoadScene("Intro");
+    }
 }
