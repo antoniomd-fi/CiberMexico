@@ -17,7 +17,7 @@ public class ModelsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GPSController.distancia < radioDeAccion)
+       /*if (GPSController.distancia < radioDeAccion)
         {
             modelo2.SetActive(true);
             modelo1.SetActive(false);
@@ -26,6 +26,6 @@ public class ModelsController : MonoBehaviour
         {
             modelo2.SetActive(false);
             modelo1.SetActive(true);
-        }
+        }*/
     }
 }

@@ -1,52 +1,73 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Collections;
+using UnityEngine.UI;
 public class GPSController : MonoBehaviour
 {
-    public float puntoLat;
-    public float puntoLong;
-    float actualLat;
-    float actualLong;
-    public static float distancia;
-
-    float FormulaHaversine(float lat1, float long1, float lat2, float long2)
-    {
-        float earthRad = 6371000;
-        float lRad1 = lat1 * Mathf.Deg2Rad;
-        float lRad2 = lat2 * Mathf.Deg2Rad;
-        float dLat = (lat2 - lat1) * Mathf.Deg2Rad;
-        float dLong = (long2 - long1) * Mathf.Deg2Rad;
-        float a = Mathf.Sin(dLat / 2.0f) * Mathf.Sin(dLat / 2.0f) +
-                  Mathf.Cos(lRad1) * Mathf.Cos(lRad2) *
-                  Mathf.Sin(dLong / 2.0f) * Mathf.Sin(dLong / 2.0f);
-        float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
-        return earthRad * c; //en metros
-    }
-
-    // Start is called before the first frame update
+    private string urlMap="";
+    public RawImage imageMap;
+    public Text latitudText;
+    public Text longitudText;
+    public Text GPSStatus;
     void Start()
     {
+        StartCoroutine(GetMap());
+    }
+
+    IEnumerator GetMap()
+    {
+        // Verificar si el servicio de ubicación está activado
+        if (!Input.location.isEnabledByUser)
+            yield break;
+        // iniciar servicio
         Input.location.Start();
-    }
+        // Esperar hasta que se inicie el servicio
+        int maxWait = 20;
+        while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+        {
+            yield return new WaitForSeconds(1);
+            maxWait--;
+        }
 
-    // Update is called once per frame
-    void Update()
+        // 20 segundos para iniciar el servicio
+        if (maxWait < 1)
+        {
+            GPSStatus.text = "Time Out";
+            yield break;
+        }
+
+// Conexión fallida
+        if (Input.location.status == LocationServiceStatus.Failed)
+        {
+            GPSStatus.text="Unable to determine device location";
+
+            yield break;
+        }
+        else
+        {
+            // Acceso garantizado
+            GPSStatus.text = "Running";
+            InvokeRepeating("UpdateGPSData",0.5f,1f);
+
+        }
+    } 
+
+    private void UpdateGPSData()
     {
-        actualLat = Input.location.lastData.latitude;
-        actualLong = Input.location.lastData.longitude;
+        if (Input.location.status == LocationServiceStatus.Running)
+        {
+            // Obtener valores de GPS
+            GPSStatus.text = "Running";
+            latitudText.text = Input.location.lastData.latitude.ToString();
+            longitudText.text = Input.location.lastData.longitude.ToString();
+        }
+        else
+        {
+            //  Servicio detenido
+            GPSStatus.text = "Stop";
 
-        distancia = FormulaHaversine(puntoLat, puntoLong, actualLat, actualLong);
+        } 
     }
 
-    private void OnGUI()
-    {
-        string mensaje = "Latitud : " + actualLat +
-                         "\nLongitud : " + actualLong +
-                         "\nDistancia :" + distancia;
-
-        GUI.contentColor = Color.red;
-        GUI.skin.label.fontSize = 50;
-        GUI.Label(new Rect(100, 80, 1000, 1000), mensaje);
-    }
+    
 }
