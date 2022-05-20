@@ -20,11 +20,9 @@ public class ModelsController : MonoBehaviour
        if (GPSController.distancia < radioDeAccion)
         {
             modelo2.SetActive(true);
-            modelo1.SetActive(false);
         }
-        else
+        else if (GPSController.distancia2 < radioDeAccion)
         {
-            modelo2.SetActive(false);
             modelo1.SetActive(true);
         }
     }

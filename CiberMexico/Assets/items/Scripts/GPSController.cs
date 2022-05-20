@@ -4,15 +4,17 @@ using System.Collections;
 using UnityEngine.UI;
 public class GPSController : MonoBehaviour
 {
-    private string urlMap="";
     public Text latitudText;
     public Text longitudText;
     public Text GPSStatus;
     public float puntoLat;
     public float puntoLong;
+    public float puntoLat2;
+    public float puntoLong2;
     float actualLat;
     float actualLong;
     public static float distancia;
+    public static float distancia2;
     void Start()
     {
         StartCoroutine(GetMap());
@@ -67,6 +69,7 @@ public class GPSController : MonoBehaviour
             actualLat = Input.location.lastData.latitude;
             actualLong = Input.location.lastData.longitude;
             distancia = FormulaHaversine(puntoLat, puntoLong,actualLat,actualLong);
+            distancia2 = FormulaHaversine(puntoLat2, puntoLong2,actualLat,actualLong);
         }
         else
         {
