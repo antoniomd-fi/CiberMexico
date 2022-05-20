@@ -447,10 +447,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889a87a6bbff1884690d5fb8dd412260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageMap: {fileID: 0}
   latitudText: {fileID: 788080229}
   longitudText: {fileID: 43541097}
   GPSStatus: {fileID: 860300433}
+  puntoLat: 19.424671
+  puntoLong: -98.88591
 --- !u!4 &207889648
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,7 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelo1: {fileID: 40919614}
   modelo2: {fileID: 919132149407826652}
-  radioDeAccion: 20
+  radioDeAccion: 8
 --- !u!4 &725708244
 Transform:
   m_ObjectHideFlags: 0

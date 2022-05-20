@@ -5,10 +5,14 @@ using UnityEngine.UI;
 public class GPSController : MonoBehaviour
 {
     private string urlMap="";
-    public RawImage imageMap;
     public Text latitudText;
     public Text longitudText;
     public Text GPSStatus;
+    public float puntoLat;
+    public float puntoLong;
+    float actualLat;
+    float actualLong;
+    public static float distancia;
     void Start()
     {
         StartCoroutine(GetMap());
@@ -60,6 +64,9 @@ public class GPSController : MonoBehaviour
             GPSStatus.text = "Running";
             latitudText.text = Input.location.lastData.latitude.ToString();
             longitudText.text = Input.location.lastData.longitude.ToString();
+            actualLat = Input.location.lastData.latitude;
+            actualLong = Input.location.lastData.longitude;
+            distancia = FormulaHaversine(puntoLat, puntoLong,actualLat,actualLong);
         }
         else
         {
@@ -67,6 +74,20 @@ public class GPSController : MonoBehaviour
             GPSStatus.text = "Stop";
 
         } 
+    }
+    
+    float FormulaHaversine(float lat1, float long1, float lat2, float long2)
+    {
+        float earthRad = 6371000;
+        float lRad1 = lat1 * Mathf.Deg2Rad;
+        float lRad2 = lat2 * Mathf.Deg2Rad;
+        float dLat = (lat2 - lat1) * Mathf.Deg2Rad;
+        float dLong = (long2 - long1) * Mathf.Deg2Rad;
+        float a = Mathf.Sin(dLat / 2.0f) * Mathf.Sin(dLat / 2.0f) +
+                  Mathf.Cos(lRad1) * Mathf.Cos(lRad2) *
+                  Mathf.Sin(dLong / 2.0f) * Mathf.Sin(dLong / 2.0f);
+        float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
+        return earthRad * c; //en metros
     }
 
     
