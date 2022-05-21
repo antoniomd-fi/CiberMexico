@@ -7,6 +7,8 @@ public class GPSController : MonoBehaviour
     public Text latitudText;
     public Text longitudText;
     public Text GPSStatus;
+    public Text dist1;
+    public Text dist2;
     public float puntoLat;
     public float puntoLong;
     public float puntoLat2;
@@ -70,6 +72,8 @@ public class GPSController : MonoBehaviour
             actualLong = Input.location.lastData.longitude;
             distancia = FormulaHaversine(puntoLat, puntoLong,actualLat,actualLong);
             distancia2 = FormulaHaversine(puntoLat2, puntoLong2,actualLat,actualLong);
+            dist1.text = distancia.ToString();
+            dist2.text = distancia2.ToString();
         }
         else
         {
@@ -93,5 +97,9 @@ public class GPSController : MonoBehaviour
         return earthRad * c; //en metros
     }
 
+    void Update()
+    {
+        
+    }
     
 }
