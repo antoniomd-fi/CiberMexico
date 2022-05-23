@@ -9,14 +9,18 @@ public class GPSController : MonoBehaviour
     public Text GPSStatus;
     public Text dist1;
     public Text dist2;
+    public Text dist3;
     public float puntoLat;
     public float puntoLong;
     public float puntoLat2;
     public float puntoLong2;
+    public float puntoLat3;
+    public float puntoLong3;
     float actualLat;
     float actualLong;
     public static float distancia;
     public static float distancia2;
+    public static float distancia3;
     void Start()
     {
         StartCoroutine(GetMap());
@@ -72,8 +76,10 @@ public class GPSController : MonoBehaviour
             actualLong = Input.location.lastData.longitude;
             distancia = FormulaHaversine(puntoLat, puntoLong,actualLat,actualLong);
             distancia2 = FormulaHaversine(puntoLat2, puntoLong2,actualLat,actualLong);
+            distancia3 = FormulaHaversine(puntoLat3, puntoLong3,actualLat,actualLong);
             dist1.text = distancia.ToString();
             dist2.text = distancia2.ToString();
+            dist3.text = distancia3.ToString();
         }
         else
         {

@@ -7,6 +7,7 @@ public class ModelsController : MonoBehaviour
 {
     public GameObject modelo1;
     public GameObject modelo2;
+    public GameObject modelo3;
     public float radioDeAccion;
     public Text title;
     public Text info;
@@ -39,10 +40,21 @@ public class ModelsController : MonoBehaviour
             info.text = "En la cultura mexica es el dios del amor, los juegos, la belleza, las flores, el maíz, el placer y de la ebriedad sagrada; su nombre significa Príncipe de las flores o Noble florido, aunque también puede ser interpretada como flor preciosa o flor noble.\n Su culto se relaciona con el de otros dioses del maíz,de la fertilidad y de la cosecha, como el dios de la lluvia, Tláloc, y el del maíz, Cinteotl. Está asociado con Macuilxochitl (Cinco flores), dios de los juegos y las apuestas. Su hermana melliza era Xochiquétzal.";
             
         }
+       else if (GPSController.distancia3 < radioDeAccion)
+       {
+           modelo1.SetActive(false);
+           modelo2.SetActive(false);
+           modelo3.SetActive(true);
+           InfoButton.SetActive(true);
+           title.text = "Xiuhcoatl";
+           info.text = "Xiuhcoatl o Xiuhcóatl: ‘serpiente [de] fuego’, ‘serpiente sol[ar]’, ‘serpiente preciosa’ o ‘serpiente [de] jade’; es un arma viviente y la más poderosa de los dioses mexicas empuñada por el dios de la guerra Huitzilopochtli, con la cual mató a 400 de sus hermanos y a su hermana la diosa Coyolxauhqui. Mítica serpiente de fuego; se puede ver la representación de dos de estas criaturas en la Piedra del Sol.";
+       }
        else
        {
            modelo1.SetActive(false);
            modelo2.SetActive(false);
+           modelo3.SetActive(false);
+           InfoButton.SetActive(false);
        }
     }
 }
