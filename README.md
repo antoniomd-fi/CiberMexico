@@ -16,5 +16,4 @@ https://github.com/antoniomd-fi/CyberMexico/assets/90221784/9bfc62a4-2e9a-484f-9
 
 
 
-**All rights reserved**
 
