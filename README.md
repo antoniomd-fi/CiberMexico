@@ -8,12 +8,16 @@ Here's twice tests in this stage
 
 - When the app don't find a strategic place just you can see a virtual room whit differents ancient murals
   
-https://github.com/antoniomd-fi/CyberMexico/assets/90221784/e378109b-0e99-4d06-9a96-cf1bc778b1ff
+
+
+https://github.com/antoniomd-fi/CiberMexico/assets/90221784/edeca57a-1700-47f1-909a-4a1d94e7d0a1
+
+
 
 - When the app  find a strategic place  you can see the same virtual room but whit the sculture or specific element
   
-https://github.com/antoniomd-fi/CyberMexico/assets/90221784/9bfc62a4-2e9a-484f-9c59-3fcd65d9f724
 
 
+https://github.com/antoniomd-fi/CiberMexico/assets/90221784/c407cb4a-b15e-45bd-8559-16a1fda2421d
 
 
